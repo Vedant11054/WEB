@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="icon" href="images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      /* Basic setup */
+.element {
+  position: relative;
+  display: inline-block;
+}
+
+/* Glitch effect */
+.element::before {
+  content: 'Glitch';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 255, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 0, 0, 0);
+  animation: glitch 1s infinite;
+}
+
+/* Keyframes for glitch effect */
+@keyframes glitch {
+  0% {
+    clip: rect(0, 0, 0, 0);
+  }
+  20% {
+    clip: rect(0, 100%, 50%, 0);
+  }
+  40% {
+    clip: rect(0, 100%, 100%, 0);
+  }
+  60% {
+    clip: rect(0, 0, 0, 0);
+  }
+  80% {
+    clip: rect(0, 100%, 100%, 0);
+  }
+  100% {
+    clip: rect(0, 0, 0, 0);
+  }
+}
+.service-card {
+  animation-delay: 0.2s;
+}
+
+.service-card {
+  animation-delay: 0.4s;
+}
+
+.service-card {
+  animation-delay: 0.6s;
+}
+
+.service-card {
+  animation-delay: 0.8s;
+}
+
+        .services-section {
+            background-color: #0e101c;
+            color: white;
+            padding: 40px 0;
+        }
+        .services-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+          }
+          
+          .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          
+          .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+          }
+          
+          .service-card h3 {
+            font-size: 1.5rem;
+            color: #fff;
+          }
+          
+          .service-card p {
+            font-size: 1rem;
+            color: #ddd;
+          }
+    </style>
+</head>
+<body>
+    <!-- Page Header-->
+    <header class="section page-header">
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-classic">
+                <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                <div class="rd-navbar-main-outer">
+                    <div class="rd-navbar-main">
+                        <div class="rd-navbar-panel">
+                            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                            <div class="rd-navbar-brand">
+                                <a class="brand" href="index.html"><img src="images/banner.png" alt="" width="200%" height="60%"/></a>
+                            </div>
+                        </div>
+                        <div class="rd-navbar-main-element">
+                            <div class="rd-navbar-nav-wrap">
+                              <ul class="rd-navbar-nav">
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Home</a></li>
+                                <li class="rd-nav-item active"><a class="rd-nav-link" href="domain.html">Our Services</a></li>
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">About</a></li>
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contacts</a></li>
+                              </ul>
+                            </div>
+                        </div>
+                        <div class="rd-navbar-collapse">
+                            <ul class="socialite-list">
+                                <li><a class="fa fa-discord" href="https://www.youtube.com/@vedantgaming2406"></a></li>
+                                <li><a class="icon novi-icon socialite fa-youtube" href="https://www.youtube.com/@vedantgaming2406"></a></li>
+                                <li><a class="icon novi-icon socialite fa-instagram" href="https://www.instagram.com/descam.in"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Our Services Section -->
+    <section class="services-section" >
+        <div class="container">
+            <h2>Our Services</h2>
+        <div class="services-grid">
+            <a class="service-card" href="phone.html">
+                <h3>SCAM CALL DETECTOR</h3>
+                <p>Welcome to Descam, a comprehensive solution to combat digital scams and fraud. Our mission is to provide users with the tools and information they need to protect themselves from spam, phishing, and other malicious activities online. We strive to make the internet a safer place for everyone.</p>
+            </a>
+            <a class="service-card" href="sms.html">
+                <h3>SCAM SMS DETECTOR</h3>
+                <p>Welcome to Descam, a comprehensive solution to combat digital scams and fraud. Our mission is to provide users with the tools and information they need to protect themselves from spam, phishing, and other malicious activities online. We strive to make the internet a safer place for everyone.</p>
+            </a>
+            <a class="service-card" href="email.html">
+                <h3>SCAM EMAIL DETECTOR</h3>
+                <p>Welcome to Descam, a comprehensive solution to combat digital scams and fraud. Our mission is to provide users with the tools and information they need to protect themselves from spam, phishing, and other malicious activities online. We strive to make the internet a safer place for everyone.</p>
+            </a>
+            <a class="service-card" href="doc.html">
+                <h3>SCAM DOCUMENT DETECTOR</h3>
+                <p>Welcome to Descam, a comprehensive solution to combat digital scams and fraud. Our mission is to provide users with the tools and information they need to protect themselves from spam, phishing, and other malicious activities online. We strive to make the internet a safer place for everyone.</p>
+            </a>
+            </div>
+        </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="section footer-classic context-dark">
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-lg-3">
+              <h4>Quick Links</h4>
+              <ul class="list list-unstyled">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#Register">Register</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3">
+              <h4>Contact Us</h4>
+              <ul class="list list-unstyled">
+                <li><a href="tel:#">+91 8856813968</a></li>
+                <li><a href="mailto:#">teamdescam@gmail.com</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3">
+              <h4>Follow Us</h4>
+              <ul class="socialite-list">
+                <li><a class="fa fa-discord" href="https://www.youtube.com/@vedantgaming2406"></a></li>
+                <li><a class="icon novi-icon socialite fa-youtube" href="https://www.youtube.com/@vedantgaming2406"></a></li>
+                <li><a class="icon novi-icon socialite fa-instagram" href="https://www.instagram.com/descam.in"></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3">
+              <h4>Address</h4>
+              <p>St. Vincent Pallotti College of Engineering and Technology, Nagpur</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer class="section footer-classic bg-default">
+        <div class="container">
+          <div class="row row-15">
+            <div class="col-sm-6">
+                Designed by Vedant Ghubade</a>
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <div class="footer-contact"><a href="contacts.html">
+                  <div class="icon novi-icon mdi mdi-email-outline"></div>Contact Us</a></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

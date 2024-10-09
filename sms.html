@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/fonts.css">
+    
+        <title>Spam SMS Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: black;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 2;
+            height: 100px; /* Adjust this height to match the size of the banner */
+        }
+
+        .brand img {
+            height: 150px; /* Adjust this value to change the logo size */
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            height: 100%;
+            align-items: center;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #b5b1b1;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+            font-size: 25px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 400px;
+            position: relative;
+            z-index: 2;
+        }
+
+        textarea {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            resize: vertical;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        textarea::placeholder {
+            color: #ddd;
+        }
+
+        input[type="submit"] {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }.social-icons {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 15px;
+            z-index: 2;
+        }
+        
+        .footer-social-icons {
+            position: fixed; /* or absolute if you want it relative to a specific container */
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 10; /* Adjust z-index if needed */
+        }
+        
+        .footer-social-icons a {
+            color: #ebe4e4;
+            font-size: 100px; /* Adjust size of icons */
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social-icons a:hover {
+            color: #ddd; /* Change color on hover */
+        }
+        .social-icons a {
+            color: #ffffff; /* Change to your desired color */
+            font-size: 20px; /* Adjust size if needed */
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #ddd; /* Change color on hover */
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 12px;
+            color: white;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        footer a {
+            color: #b5b1b1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="header">
+        <div class="brand">
+            <a href="index.html"><img src="images/banner/ban1.png" alt="Logo" /></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="domain.html">Our Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div>
+        <h1>Spam SMS Classifier</h1>
+        <form action="/predict" method="POST">
+            <textarea name="sms" rows="4" cols="50" placeholder="Enter your SMS message here..."></textarea><br>
+            <input type="submit" value="Classify">
+        </form>
+    </div>
+    
+
+    <footer>
+        <a href="https://www.instagram.com/vedant11054" target="_blank">Designed by Vedant Ghubade</a>
+    </footer>
+
+
+    <!-- Social Icons -->
+<div class="social-icons">
+    <a class="icon novi-icon socialite fa-youtube" href="https://www.youtube.com/@vedantgaming2406" target="_blank"></a>
+    <a class="icon novi-icon socialite fa-instagram" href="https://www.instagram.com/descam.in" target="_blank"></a>
+  </div>
+  
+    <!-- Particle.js Script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 60,
+                    "density": {
+                        "enable": true,
+                        "value_area": 500
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "line",
+                    "stroke": {
+                        "width": 2,
+                        "color": "#ffffff"
+                    }
+                },
+                "opacity": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 0.3,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 4,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

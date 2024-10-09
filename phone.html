@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <title>Mobile Number Classifier & Audio Analyzer</title>
+    <style>
+        /* Existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(1, 6, 58); 
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+        }
+
+        .brand img {
+            height: 250px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            height: 100%;
+            align-items: center;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #f7f0f0; 
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fa0d0d;
+            font-size: 25px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 400px;
+            margin-bottom: 20px;
+        }
+
+        textarea,
+        input[type="text"],
+        input[type="file"] {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            resize: vertical;
+            box-shadow: 0 4px 30px rgb(55, 43, 43);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        textarea::placeholder,
+        input[type="text"]::placeholder {
+            color: #ddd;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(5, 22, 69);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-social-icons {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .footer-social-icons a {
+            color: #ebe4e4;
+            font-size: 100px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-icons a:hover {
+            color: #ddd;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 12px;
+            color: white;
+        }
+
+        footer a {
+            color: #b5b1b1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="header">
+        <div class="brand">
+            <a href="index.html"><img src="{{ url_for('static', filename='images/banner.png') }}" alt="Logo" /></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="domain.html">Our Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content-wrapper">
+        <h1>Mobile Number Classifier & Audio Analyzer</h1>
+
+        <!-- Mobile Number Classifier Form -->
+        <form action="/classify_number" method="POST">
+            <input type="text" name="phoneNumber" placeholder="Enter your mobile number here...">
+            <input type="submit" value="Classify Number">
+        </form>
+
+        <!-- Display the classification result for Mobile Number -->
+        {% if number_classification %}
+            <h2>{{ number_classification }}</h2>
+        {% endif %}
+
+        <!-- Audio Analyzer Form -->
+        <form action="/analyze_audio" method="POST" enctype="multipart/form-data">
+            <input type="file" name="audioFile" accept="audio/*">
+            <input type="submit" value="Analyze Audio">
+        </form>
+
+        <!-- Display the analysis result for Audio -->
+        {% if audio_analysis %}
+            <h2>{{ audio_analysis }}</h2>
+        {% endif %}
+    </div>
+
+    <footer>
+        <a href="https://www.instagram.com/vedant11054" target="_blank">Designed by Vedant Ghubade</a>
+    </footer>
+
+    <div class="footer-social-icons">
+        <a class="icon novi-icon socialite fa-youtube" href="https://www.youtube.com/@vedantgaming2406" target="_blank"></a>
+        <a class="icon novi-icon socialite fa-instagram" href="https://www.instagram.com/descam.in" target="_blank"></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 75,
+                    "density": {
+                        "enable": true,
+                        "value_area": 500
+                    }
+                },
+                "color": {
+                    "value": "#00ffff"
+                },
+                "shape": {
+                    "type": "line",
+                    "stroke": {
+                        "width": 2,
+                        "color": "#00ffff"
+                    }
+                },
+                "opacity": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 0.3,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 4,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 5
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 6
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

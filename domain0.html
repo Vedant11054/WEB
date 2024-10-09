@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="icon" href="images/urllogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Particles.js background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .services-section {
+            position: relative;
+            background-color: #0e101c; /* Background color behind the particles */
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .services-section h2 {
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            z-index: 2;
+        }
+
+        .service-card {
+            background-color: rgba(33, 36, 55, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #b5b8d3;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <!-- Page Header-->
+    <header class="section page-header">
+        <!-- Navbar -->
+        <!-- Same as previous navbar code -->
+    </header>
+
+    <!-- Our Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <a class="service-card" href="#">
+                    <h3>Shubham Kulkarni</h3>
+                    <p>Specializes in identifying and mitigating threats from spam calls.</p>
+                </a>
+                <a class="service-card" href="#">
+                    <h3>Vedant Ghubade</h3>
+                    <p>Focuses on combating spam messages.</p>
+                </a>
+                <a class="service-card" href="#">
+                    <h3>Aditya Likhitkar</h3>
+                    <p>Oversees continuous integration and delivery processes.</p>
+                </a>
+                <a class="service-card" href="#">
+                    <h3>Soham Deshmukh</h3>
+                    <p>Ensures that Descam adheres to legal standards and compliances.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Footer -->
+    <!-- Same as previous footer code -->
+
+    <!-- Particles.js script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
+</body>
+</html>
